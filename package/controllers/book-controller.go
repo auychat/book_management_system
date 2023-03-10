@@ -55,7 +55,7 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error while parsing")
 	}
-	book := models.DeleteBook((Id))
+	book := models.DeleteBook(Id)
 	res, _ := json.Marshal(book)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)

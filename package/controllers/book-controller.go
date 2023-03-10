@@ -34,6 +34,7 @@ func GetBookById(w http.ResponseWriter, r *http.Request) {
 	bookDetails, _ := models.GetBookById(Id)
 	res, _ := json.Marshal(bookDetails)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -59,6 +60,7 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 	book := models.DeleteBook(Id)
 	res, _ := json.Marshal(book)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
@@ -86,6 +88,7 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 	db.Save(&bookDetails)
 	res, _ := json.Marshal(bookDetails)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
